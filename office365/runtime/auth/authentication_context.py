@@ -44,7 +44,7 @@ class AuthenticationContext(object):
                 private_key = f.read()
 
         def _acquire_token():
-            authority_url = 'https://login.microsoftonline.com/{0}'.format(tenant)
+            authority_url = 'https://login.microsoftonline.us/{0}'.format(tenant)
             credentials = {"thumbprint": thumbprint, "private_key": private_key}
             import msal
             app = msal.ConfidentialClientApplication(
@@ -77,7 +77,7 @@ class AuthenticationContext(object):
             import msal
             app = msal.PublicClientApplication(
                 client_id,
-                authority='https://login.microsoftonline.com/{0}'.format(tenant),
+                authority='https://login.microsoftonline.us/{0}'.format(tenant),
                 client_credential=None
             )
             result = app.acquire_token_interactive(scopes=scopes)
@@ -101,7 +101,7 @@ class AuthenticationContext(object):
             import msal
             app = msal.PublicClientApplication(
                 client_id,
-                authority='https://login.microsoftonline.com/{0}'.format(tenant),
+                authority='https://login.microsoftonline.us/{0}'.format(tenant),
                 client_credential=None
             )
 
